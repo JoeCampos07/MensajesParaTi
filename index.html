@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un mensaje para ti</title>
+    <style>
+        /* Estilos generales para un diseño limpio y centrado */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc; /* Un tono gris/azulado muy suave y relajante */
+            color: #334155;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Estilo del encabezado */
+        header {
+            margin-top: 3rem;
+            padding: 0 1.5rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        /* Contenedor principal de la imagen */
+        #tarjeta-container {
+            flex-grow: 1; /* Empuja el header arriba y el footer abajo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 400px; /* Tamaño máximo para que no se vea gigante en PC */
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        /* Estilo de la tarjeta (imagen) */
+        #imagen-tarjeta {
+            width: 100%;
+            height: auto;
+            border-radius: 16px; /* Bordes redondeados */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra para darle profundidad */
+            background-color: #e2e8f0; /* Color de fondo mientras carga la imagen */
+            min-height: 300px; 
+            object-fit: cover;
+        }
+
+        /* Estilo del pie de página */
+        footer {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: #64748b;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Este mensaje lo elegí hoy especialmente para ti...</h1>
+    </header>
+
+    <div id="tarjeta-container">
+        <img id="imagen-tarjeta" src="" alt="Cargando tu mensaje especial...">
+    </div>
+
+    <footer>
+        Joe Campos
+    </footer>
+
+    <script>
+        // Aquí simulamos tu librería de imágenes. 
+        // Solo necesitas tener una carpeta llamada 'tarjetas' junto a este archivo HTML.
+        const imagenesDisponibles = [
+            'tarjetas/mensaje1.jpg',
+            'tarjetas/mensaje2.jpg',
+            'tarjetas/mensaje3.jpg',
+						'tarjetas/mensaje4.jpg',
+            'tarjetas/mensaje5.jpg',
+            'tarjetas/mensaje6.jpg',
+						'tarjetas/mensaje7.jpg',
+            'tarjetas/mensaje8.jpg',
+            'tarjetas/mensaje9.jpg',
+						'tarjetas/mensaje10.jpg',
+            'tarjetas/mensaje11.jpg'
+        ];
+
+        // Función para simular la carga de una tarjeta aleatoria al entrar a la web
+        function mostrarTarjetaAleatoria() {
+            // Elegimos un número al azar basado en la cantidad de imágenes
+            const indiceAleatorio = Math.floor(Math.random() * imagenesDisponibles.length);
+            
+            // Seleccionamos la ruta de la imagen
+            const imagenSeleccionada = imagenesDisponibles[indiceAleatorio];
+            
+            // Cambiamos el atributo 'src' de la imagen en el HTML
+            document.getElementById('imagen-tarjeta').src = imagenSeleccionada;
+        }
+
+        // Ejecutamos la función justo cuando la página termina de cargar
+        window.onload = mostrarTarjetaAleatoria;
+    </script>
+
+</body>
+</html>
